@@ -6,7 +6,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -36,6 +38,10 @@ public class Author {
     private String paisDeOrigem;
 
     private String cpf;
+
+    @OneToMany
+    @JoinColumn(name = "id_obra", referencedColumnName = "id")
+    private List<Obra> obra = new ArrayList<>();
 
 
 }
