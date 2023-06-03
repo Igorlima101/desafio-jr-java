@@ -1,11 +1,14 @@
 package com.igor.desafiojr.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,9 +21,8 @@ import java.util.List;
 public class Author {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @NotNull
     @NotEmpty
@@ -31,12 +33,15 @@ public class Author {
     @Email
     private String email;
 
-    @NotNull
-    @NotEmpty
+    @PastOrPresent
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dataDeNascimento;
 
+    @NotNull
+    @NotEmpty
     private String paisDeOrigem;
 
+    @CPF
     private String cpf;
 
     @OneToMany

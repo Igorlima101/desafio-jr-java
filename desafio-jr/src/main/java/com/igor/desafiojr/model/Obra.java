@@ -1,5 +1,6 @@
 package com.igor.desafiojr.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,8 +21,8 @@ public class Obra {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @NotNull
     private String nome;
@@ -29,8 +30,10 @@ public class Obra {
     @Size(max = 240)
     private String descricao;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dataDePublicacao;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dataDeExposicao;
 
     @OneToMany
