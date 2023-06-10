@@ -1,17 +1,16 @@
 package com.igor.desafiojr.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.igor.desafiojr.model.dtos.ObraDTO;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -20,8 +19,8 @@ public class Obra {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @NotNull
     private String nome;
@@ -29,12 +28,24 @@ public class Obra {
     @Size(max = 240)
     private String descricao;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dataDePublicacao;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dataDeExposicao;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "id_author", referencedColumnName = "id")
-    private List<Author> author = new ArrayList<>();
+    private Author author;
+
+    public static Obra from(ObraDTO obraDto){
+        Obra obra = new Obra();
+        obra.setNome(obraDto.getNome());
+        obra.setDescricao(obraDto.getDescricao());
+        obra.setDataDePublicacao(obraDto.getDataDePublicacao());
+        obra.setDataDeExposicao(obraDto.getDataDeExposicao());
+        return obra;
+
+    }
 
 }
