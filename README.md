@@ -19,10 +19,15 @@ A aplicação, a ser desenvolvida em Java, deverá expor uma API REST de cadastr
 Autor
 
 Nome - obrigatório
+
 Sexo
+
 E-mail - não obrigatório, deve ser validado caso preenchido (não pode haver dois cadastros com mesmo e-mail)
+
 Data de nascimento - obrigatório, deve ser validada
+
 País de origem - obrigatório (deve ser um país existente)
+
 CPF - somente deve ser informado caso país de origem seja o Brasil, desta forma torna-se obrigatório. Deve ser validado (formatado e não pode haver dois cadastros com mesmo CPF)
 
 
