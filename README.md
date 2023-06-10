@@ -1,6 +1,6 @@
 # desafio-jr-java
 
-Challenge found in google
+Challenge found in the google
 
 ### Description
 
