@@ -11,6 +11,5 @@ import java.util.List;
 @Repository
 public interface AuthorInterface extends JpaRepository<Author, Integer> {
 
-    List<Author> findByNome(String nome);
 }
 
