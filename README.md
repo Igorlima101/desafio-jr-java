@@ -16,7 +16,7 @@ A partir de um autor deverá ser possível acessar a(s) obra(s).
 1) Back-end
 A aplicação, a ser desenvolvida em Java, deverá expor uma API REST de cadastro, alteração, remoção e consulta de autores e obras com as seguintes propriedades básicas definidas para cada entidade:
 
-Autor
+### Autor
 
 Nome - obrigatório
 
@@ -31,7 +31,7 @@ País de origem - obrigatório (deve ser um país existente)
 CPF - somente deve ser informado caso país de origem seja o Brasil, desta forma torna-se obrigatório. Deve ser validado (formatado e não pode haver dois cadastros com mesmo CPF)
 
 
-Obra
+### Obra
 
 Nome - obrigatório
 
