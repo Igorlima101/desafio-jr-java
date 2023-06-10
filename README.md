@@ -34,8 +34,11 @@ CPF - somente deve ser informado caso país de origem seja o Brasil, desta forma
 Obra
 
 Nome - obrigatório
+
 Descrição - obrigatório (deve conter no máximo 240 caracteres)
+
 Data de publicação - obrigatória caso a data de exposição não seja informada (é utilizada mais para livros e demais publicações escritas)
+
 Data de exposição - obrigatória caso a data de publicação não seja informada (é utilizada mais para obras que são expostas, como pinturas, esculturas e demais)
 
 
