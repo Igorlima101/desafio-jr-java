@@ -1,18 +1,16 @@
 package com.igor.desafiojr.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.igor.desafiojr.model.dtos.ObraDTO;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -36,8 +34,18 @@ public class Obra {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dataDeExposicao;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "id_author", referencedColumnName = "id")
-    private List<Author> author = new ArrayList<>();
+    private Author author;
+
+    public static Obra from(ObraDTO obraDto){
+        Obra obra = new Obra();
+        obra.setNome(obraDto.getNome());
+        obra.setDescricao(obraDto.getDescricao());
+        obra.setDataDePublicacao(obraDto.getDataDePublicacao());
+        obra.setDataDeExposicao(obraDto.getDataDeExposicao());
+        return obra;
+
+    }
 
 }
